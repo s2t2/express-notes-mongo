@@ -37,3 +37,7 @@
 ## HTML
 
  + http://stackoverflow.com/a/2231998/670433
+
+## EJS
+
+ + http://stackoverflow.com/questions/5372559/what-is-the-proper-way-to-check-for-existence-of-variable-in-an-ejs-template-us
