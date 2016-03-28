@@ -99,7 +99,8 @@ router.post('/notes/:id/update', function(req, res, next) {
         res.redirect('/notes/'+note_id+'/edit') //todo: keep values and flash a message
       } else {
         console.log("UPDATED A NOTE", n)
-        res.redirect('/notes/'+note_id) //todo: flash a message
+        //res.redirect('/notes/'+note_id) //todo: flash a message
+        res.redirect('/notes') //todo: flash a message
       };
     });
   });

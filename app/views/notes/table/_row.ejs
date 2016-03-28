@@ -10,12 +10,16 @@
   <td><%= note.updated_at %></td>
   <td>
     <form action=<%= edit_note_path %> method='GET'>
-      <button class='btn btn-warning' type='submit'>edit</button>
+      <button class='btn btn-warning' type='submit'>
+        <span class="glyphicon glyphicon-pencil"></span> edit
+      </button>
     </form>
   </td>
   <td>
     <form action=<%= destroy_note_path %> method='POST'>
-      <button class='btn btn-danger' type='submit'>delete</button>
+      <button class='btn btn-danger' type='submit'>
+        <span class="glyphicon glyphicon-trash"></span> delete
+      </button>
     </form>
   </td>
 </tr>
