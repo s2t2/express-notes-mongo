@@ -1,7 +1,8 @@
 var mongoose = require( 'mongoose' );
 var Note = require("../app/models/note");
 
-mongoose.connect('mongodb://localhost/notes');
+var mongoConnectionString = process.env.MONGOLAB_URI || 'mongodb://localhost/notes_app';
+mongoose.connect(mongoConnectionString);
 
 //
 // get a collection of all existing notes

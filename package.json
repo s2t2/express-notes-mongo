@@ -7,7 +7,9 @@
     "npm":"3.7.3"
   },
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
+    "heroku-postbuild": "node db/seeds.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

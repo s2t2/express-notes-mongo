@@ -1,6 +1,6 @@
-# How to Deploy a Node app to Heroku from Scratch
+# How to Deploy this Node app to Heroku from Scratch
 
-This document describes the process of deploying a Node.js application to a production server hosted by Heroku.
+This document describes the process of deploying this Node.js application to a production server hosted by Heroku.
 
 ## Prerequisites
 
@@ -18,13 +18,18 @@ Create and configure a new heroku application.
 ```` sh
 heroku create
 heroku apps:rename new-app-name
-heroku config:set KEY1=VALUE1 [KEY2=VALUE2 ...]
 # heroku domains:add example.com
+````
+
+Set environment variable(s). Setting `NODE_ENV` is technically unnecessary because heroku does it automatically during deploy.
+
+```` sh
+heroku config:set NODE_ENV=production SESSION_SECRET=s0m3l0ngstr1ng123456
 ````
 
 ## Production Considerations
 
-Modify `package.json` to include versions and deploy scripts, as necessary.
+Modify `package.json` to include versions and deploy scripts, as necessary. Find your versions with `node -v` and `npm -v`, respectively.
 
 ```` json
   ...
@@ -35,7 +40,7 @@ Modify `package.json` to include versions and deploy scripts, as necessary.
   "scripts": {
     "start": "nodemon ./bin/www",
     "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
-    "heroku-postbuild": "echo This runs after Heroku installs your dependencies."
+    "heroku-postbuild": "node db/seeds.js"
   },
   ...
 ````
@@ -49,9 +54,30 @@ web: node ./bin/www
 
 > Note, the Procfile invokes `node` instead of `nodemon`, the latter being used for local development only.
 
-If using sessions, configure a different session store besides the  default MemoryStore because it is not production-safe.
+If using sessions, configure a different session store (perhaps pg, redis, or mongo) besides the default `MemoryStore` because the latter it is not production-safe.
 
-Redeploy.
+## Add-ons and Resources
+
+### Mongo
+
+Configure a production mongo database.
+
+```` sh
+heroku addons:create mongolab:sandbox
+````
+
+Configure the application to use the `MONGOLAB_URI` environment variable in production. Do this wherever you have specified `mongoose.connect()`.
+
+```` js
+// app.js
+var mongoose = require('mongoose');
+var mongoConnectionString = process.env.MONGOLAB_URI || 'mongodb://localhost/notes_app';
+mongoose.connect(mongoConnectionString);
+````
+
+## Deploy
+
+Deploy and/or redeploy.
 
 ```` sh
 git push heroku master

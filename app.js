@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/notes');
+var mongoConnectionString = process.env.MONGOLAB_URI || 'mongodb://localhost/notes_app';
+mongoose.connect(mongoConnectionString);
 
 var session = require('express-session');
 var flash = require('connect-flash');
