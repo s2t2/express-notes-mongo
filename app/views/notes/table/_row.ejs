@@ -6,8 +6,8 @@
   <td><%= note._id %></td>
   <td><a href="<%= note_path %>"><%= note.title %></a></td>
   <td><%= note.description %></td>
-  <td><%= note.created_at %></td>
-  <td><%= note.updated_at %></td>
+  <td><%= moment(note.created_at).tz(moment.tz.guess(note.created_at)).format('YYYY-MM-DD @ HH:mm:ss zz') %></td>
+  <td><%= moment(note.updated_at).tz(moment.tz.guess(note.updated_at)).format('YYYY-MM-DD @ HH:mm:ss zz') %></td>
   <td>
     <form action=<%= edit_note_path %> method='GET'>
       <button class='btn btn-warning' type='submit'>

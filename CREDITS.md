@@ -41,3 +41,10 @@
 ## EJS
 
  + http://stackoverflow.com/questions/5372559/what-is-the-proper-way-to-check-for-existence-of-variable-in-an-ejs-template-us
+ + http://stackoverflow.com/a/26708700/670433
+
+## Date Formatting
+
+ + http://momentjs.com/docs/#/displaying/
+ + https://github.com/moment/moment/issues/162#issuecomment-182539707
+ + http://momentjs.com/timezone/docs/#/use-it/

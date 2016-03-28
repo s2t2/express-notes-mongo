@@ -9,7 +9,6 @@ router.get('/notes', function(req, res, next) {
   Note.find( function (err, notes) {
     console.log("FOUND", notes.length, "NOTES")
     res.render('notes/index', {
-      title: 'Notes App!',
       page_title: 'Notes',
       notes: notes
     });
@@ -20,7 +19,6 @@ router.get('/notes', function(req, res, next) {
 
 router.get('/notes/new', function(req, res, next) {
   res.render('notes/new', {
-    title: 'Notes App!',
     page_title: 'Add a new Note'
   });
 });
@@ -54,7 +52,6 @@ router.get('/notes/:id', function(req, res, next) {
       res.redirect('/notes') //todo: flash a message
     } else {
       res.render('notes/show', {
-        title: 'Notes App!',
         page_title: 'Note #'+note.id, // +' ('+note.title+')'
         note: note
       });
@@ -73,7 +70,6 @@ router.get('/notes/:id/edit', function(req, res, next) {
     } else {
       console.log("EDITING A NOTE", note)
       res.render('notes/edit', {
-        title: 'Notes App!',
         page_title: 'Edit Note #'+note.id, // +' ('+note.title+')'
         note: note
       });

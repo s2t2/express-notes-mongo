@@ -13,6 +13,10 @@ var note_routes = require('./app/controllers/notes_controller');
 
 var app = express();
 
+var moment = require('moment-timezone');
+app.locals.moment = moment; // this makes moment available as a variable in every EJS page
+app.locals.title = "Sticky Notes App!" // set a common title for all EJS views
+
 // view engine setup
 app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'ejs');
