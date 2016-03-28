@@ -12,16 +12,18 @@
 
     <table style="width:100%">
       <tr>
-        <th>Note Id</th>
-        <th>Note Title</th>
-        <th>Note Description</th>
-        <th>Note Updated At</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created At</th>
+        <th>Updated At</th>
       </tr>
       <% notes.forEach(function(note){ %>
         <tr>
-          <td>todo</td>
+          <td><%= note._id %></td>
           <td><%= note.title %></td>
           <td><%= note.description %></td>
+          <td><%= note.created_at %></td>
           <td><%= note.updated_at %></td>
         </tr>
       <% }); %>

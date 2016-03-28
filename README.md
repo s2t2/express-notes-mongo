@@ -4,7 +4,7 @@
 
 ### Installation
 
-Install npm and mongodb.
+Install [npm](http://data-creative.info/posts/2015/07/18/how-to-set-up-a-mac-development-environment/#node) and [mongodb](http://data-creative.info/posts/2015/07/18/how-to-set-up-a-mac-development-environment/#mongodb).
 
 Install source code.
 
@@ -22,7 +22,7 @@ npm install
 Create and migrate and seed the database.
 
 ```` sh
-#todo
+node db/seeds.js
 ````
 
 ### Usage
