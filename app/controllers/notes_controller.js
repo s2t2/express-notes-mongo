@@ -31,9 +31,13 @@ router.post('/notes/new', function(req, res, next) {
     description: req.body.noteDescription
   })
   note.save(function(err, n) {
-    //if (err){ res.send(err); }
-    console.log("CREATED A NEW NOTE", n)
-    res.redirect('/notes/'+n._id) //todo: flash a message
+    if (err){
+      console.log(err)
+      res.redirect('/notes/new') //todo: keep values and flash a message
+    } else {
+      console.log("CREATED A NEW NOTE", n)
+      res.redirect('/notes/'+n._id) //todo: flash a message
+    };
   });
 });
 
@@ -41,11 +45,16 @@ router.post('/notes/new', function(req, res, next) {
 router.get('/notes/:id', function(req, res, next) {
   var note_id = req.params.id
   Note.findById(note_id, function(err, note) {
-    res.render('notes/show', {
-      title: 'Notes App!',
-      page_title: 'Note #'+note.id, // +' ('+note.title+')'
-      note: note
-    });
+    if (err){
+      console.log(err)
+      res.redirect('/notes') //todo: keep values and flash a message
+    } else {
+      res.render('notes/show', {
+        title: 'Notes App!',
+        page_title: 'Note #'+note.id, // +' ('+note.title+')'
+        note: note
+      });
+    };
   });
 });
 
