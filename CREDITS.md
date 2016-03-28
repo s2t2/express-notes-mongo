@@ -19,3 +19,7 @@
 ## Directory Structure Modifications
 
  + http://expressjs.com/en/guide/using-template-engines.html
+
+## Express Routing
+
+ + http://expressjs.com/en/api.html

@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <% include ../head %>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
-
+    <% include ../header %>
 
     <table style="width:100%">
       <tr>
@@ -19,9 +13,10 @@
         <th>Updated At</th>
       </tr>
       <% notes.forEach(function(note){ %>
+        <% action = '/notes/'+note._id %>
         <tr>
           <td><%= note._id %></td>
-          <td><%= note.title %></td>
+          <td><a href="<%= action %>"><%= note.title %></a></td>
           <td><%= note.description %></td>
           <td><%= note.created_at %></td>
           <td><%= note.updated_at %></td>
@@ -29,8 +24,6 @@
       <% }); %>
     </table>
 
-
-
-
+    <% include ../footer %>
   </body>
 </html>

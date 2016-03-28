@@ -16,6 +16,7 @@ cd express-notes-mongo/
 Install npm package dependencies.
 
 ```` sh
+npm install nodemon -g
 npm install
 ````
 
