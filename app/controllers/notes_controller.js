@@ -36,7 +36,10 @@ router.post('/notes/new', function(req, res, next) {
       console.log(err)
       var error_messages = parseErrorMessages(err)
       req.flash('error', error_messages);
-      res.redirect('/notes/new') //todo: keep values
+      res.render('notes/new', {
+        page_title: 'Add a new Note',
+        note: note
+      })
     } else {
       console.log("CREATED A NEW NOTE", n)
       req.flash('success', 'Created note #'+n._id );
@@ -57,7 +60,7 @@ router.get('/notes/:id', function(req, res, next) {
       res.redirect('/notes')
     } else {
       res.render('notes/show', {
-        page_title: 'Note #'+note.id, // +' ('+note.title+')'
+        page_title: 'Note #'+note.id,
         note: note
       });
     };
@@ -101,7 +104,7 @@ router.post('/notes/:id/update', function(req, res, next) {
         console.log(err)
         var error_messages = parseErrorMessages(err)
         req.flash('error', error_messages);
-        res.redirect('/notes/'+note_id+'/edit') //todo: keep values
+        res.redirect('/notes/'+note_id+'/edit')
       } else {
         console.log("UPDATED A NOTE", n)
         req.flash('success', 'Updated note #'+n._id );
