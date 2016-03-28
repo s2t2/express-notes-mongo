@@ -33,6 +33,7 @@
 
  + http://getbootstrap.com/css/#tables
  + http://getbootstrap.com/css/#forms
+ + http://getbootstrap.com/components/#alerts
 
 ## HTML
 
@@ -48,3 +49,16 @@
  + http://momentjs.com/docs/#/displaying/
  + https://github.com/moment/moment/issues/162#issuecomment-182539707
  + http://momentjs.com/timezone/docs/#/use-it/
+
+## Sessions and Flash
+
+ + http://stackoverflow.com/a/23161019/670433
+ + https://github.com/expressjs/session
+ + https://github.com/expressjs/express-messages
+ + https://github.com/jaredhanson/connect-flash
+ + https://github.com/jaredhanson/connect-flash/blob/master/examples/express3/app.js#L38 -- multiple messages
+
+## JavaScript
+
+ + http://stackoverflow.com/a/14810745/670433
+ + http://stackoverflow.com/a/26166303/670433
