@@ -57,6 +57,7 @@
  + https://github.com/expressjs/express-messages
  + https://github.com/jaredhanson/connect-flash
  + https://github.com/jaredhanson/connect-flash/blob/master/examples/express3/app.js#L38 -- multiple messages
+ + https://github.com/kcbanner/connect-mongo#re-use-a-mongoose-connection
 
 ## JavaScript
 

@@ -10,7 +10,7 @@ mongoose.connect('mongodb://localhost/notes');
 
 var session = require('express-session');
 var flash = require('connect-flash');
-//var mongoSessionStore = require("connect-mongoose-session-store")(express)
+var MongoStore = require('connect-mongo')(session);
 
 var home_routes = require('./app/controllers/home_controller');
 var note_routes = require('./app/controllers/notes_controller');
@@ -35,29 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* SESSIONS */
 
-//var sessionStore = new mongoSessionStore({
-//    host: 'localhost',
-//    port: 27017,
-//    db: 'mydb',
-//    stringify: false,
-//    maxAge: 60 * 60 * 1000,
-//    autoRemoveExpiredSession: true,
-//    sessionSchema: 'any_mongoose_schema',        // optional
-//    sessionHistorySchema: 'any_mongoose_schema'  // optional
-//});
-//app.use(express.session({
-//    secret: 'mlpi',
-//    key: 'mlpi.sid',
-//    cookie: {
-//      path: '/',
-//      domain: '',
-//      httpOnly: true,
-//      maxAge: 60 * 60 * 1000
-//    },
-//    store: sessionStore
-//}));
-
-var sessionStore = new session.MemoryStore();
+//var sessionStore = new session.MemoryStore();
+var sessionStore = new MongoStore({ mongooseConnection: mongoose.connection });
 
 app.use(session({
   cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days
