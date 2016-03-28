@@ -28,3 +28,8 @@
 ## Express Routing
 
  + http://expressjs.com/en/api.html
+
+## Design and Style
+
+ + http://getbootstrap.com/css/#tables
+ + http://getbootstrap.com/css/#forms

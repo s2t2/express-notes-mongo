@@ -15,6 +15,28 @@ router.get('/notes', function(req, res, next) {
   });
 });
 
+/* GET new note page (this must come above the show action or else express will think 'new' is the note :id). */
+router.get('/notes/new', function(req, res, next) {
+  res.render('notes/new', {
+    title: 'Notes App!',
+    page_title: 'Add a new Note'
+  });
+});
+
+/* POST to create a new note. */
+router.post('/notes/new', function(req, res, next) {
+  console.log("CAPTURING FORM DATA:", req.body)
+  var note = new Note({
+    title: req.body.noteTitle,
+    description: req.body.noteDescription
+  })
+  note.save(function(err, n) {
+    //if (err){ res.send(err); }
+    console.log("CREATED A NEW NOTE", n)
+    res.redirect('/notes/'+n._id) //todo: flash a message
+  });
+});
+
 /* GET notes show page. */
 router.get('/notes/:id', function(req, res, next) {
   var note_id = req.params.id
