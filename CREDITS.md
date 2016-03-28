@@ -9,6 +9,8 @@
  + http://stackoverflow.com/questions/12669615/add-created-at-and-updated-at-fields-to-mongoose-schemas
  + http://mongoosejs.com/docs/guide.html#timestamps
  + http://mongoosejs.com/docs/api.html#model_Model.remove
+ + http://stackoverflow.com/questions/16726330/mongoose-mongodb-batch-insert
+ + http://mongoosejs.com/docs/api.html#model_Model.create
 
 ## Debugging
 
