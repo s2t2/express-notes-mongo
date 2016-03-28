@@ -27,4 +27,23 @@ router.get('/notes/:id', function(req, res, next) {
   });
 });
 
+/* DELETE a note. */
+router.post('/notes/:id/destroy', function(req, res, next) {
+  var note_id = req.params.id
+  Note.findById(note_id, function(err, note) {
+    note.remove( function(err, note) {
+      res.redirect('/notes')
+    });
+  });
+});
+
+// router.delete('/notes/:id', function(req, res, next) {
+//   var note_id = req.params.id
+//   Note.findById(note_id, function(err, note) {
+//     note.remove( function(err, note) {
+//       res.redirect('/notes')
+//     });
+//   });
+// }); // not able to trigger this.
+
 module.exports = router;

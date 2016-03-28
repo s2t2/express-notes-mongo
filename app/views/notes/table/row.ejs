@@ -1,0 +1,23 @@
+<% note_path = '/notes/'+note._id %>
+<% destroy_note_path = '/notes/'+note._id+'/destroy' %>
+
+<tr>
+  <td><%= note._id %></td>
+  <td><a href="<%= note_path %>"><%= note.title %></a></td>
+  <td><%= note.description %></td>
+  <td><%= note.created_at %></td>
+  <td><%= note.updated_at %></td>
+  <td>
+
+    <!--a href="<%= destroy_note_path %>">delete</a-->
+
+    <form action=<%= destroy_note_path %> method='POST'>
+      <button class='btn waves-effect' type='submit'>delete</button>
+    </form>
+
+    <!--form action=<%= note_path %> method='DELETE'>
+      <button class='btn waves-effect' type='submit'>delete</button>
+    </form-->
+
+  </td>
+</tr>

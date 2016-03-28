@@ -5,21 +5,8 @@
     <% include ../header %>
 
     <table style="width:100%">
-      <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Created At</th>
-        <th>Updated At</th>
-      </tr>
-      <% action = '/notes/'+note._id %>
-      <tr>
-        <td><%= note._id %></td>
-        <td><a href="<%= action %>"><%= note.title %></a></td>
-        <td><%= note.description %></td>
-        <td><%= note.created_at %></td>
-        <td><%= note.updated_at %></td>
-      </tr>
+      <% include table/header_row %>
+      <% include table/row %>
     </table>
 
     <% include ../footer %>
