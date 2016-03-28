@@ -15,3 +15,7 @@
 ## Debugging
 
  + https://nodejs.org/api/debugger.html -- place `debugger;` in the code and run the script with `node debug myscript.js` (jk this doesn't work as expected https://github.com/nodejs/node/issues/5930)
+
+## Directory Structure Modifications
+
+ + http://expressjs.com/en/guide/using-template-engines.html

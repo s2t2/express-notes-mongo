@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Note = require("../app/models/note");
+var Note = require("../models/note");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
