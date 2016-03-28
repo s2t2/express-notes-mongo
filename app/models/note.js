@@ -4,8 +4,14 @@ var Schema = mongoose.Schema;
 
 var NoteSchema = new Schema(
   {
-    title : String,
-    description : String
+    title : {
+      type: String,
+      required: true
+    },
+    description : {
+      type: String,
+      required: true
+    }
   },
   {
     timestamps: { // include timestamp attributes in the schema and automattically assign values on create and update, respectively
