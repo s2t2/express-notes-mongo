@@ -1,5 +1,9 @@
 # Credits, Notes, and Reference
 
+## Related Tutorial
+
++ https://canvas.devpointlabs.com/courses/4/pages/mvc-slash-mongodb?module_item_id=105
+
 ## Mongo
 
  + https://github.com/Automattic/mongoose

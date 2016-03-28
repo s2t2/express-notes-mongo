@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/notes');
 
-var routes = require('./app/routes/index');
+var home_routes = require('./app/controllers/home_controller');
+var note_routes = require('./app/controllers/notes_controller');
 
 var app = express();
 
@@ -24,7 +25,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', home_routes);
+app.use('/', note_routes); // could optionally orient the notes route against '/notes' instead of '/', but '/' makes for a clearer reading of paths in the notes_controller
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

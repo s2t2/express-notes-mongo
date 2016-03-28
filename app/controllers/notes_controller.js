@@ -3,16 +3,10 @@ var router = express.Router();
 
 var Note = require("../models/note");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  console.log("VISITED THE HOME PAGE")
-  res.redirect('/notes')
-});
-
 /* GET notes index. */
 router.get('/notes', function(req, res, next) {
-  Note.find( function ( err, notes, count ) {
-    console.log("FOUND", count, "NOTES")
+  Note.find( function (err, notes) {
+    console.log("FOUND", notes.length, "NOTES")
     res.render('notes/index', {
       title: 'Notes App!',
       page_title: 'Notes',
